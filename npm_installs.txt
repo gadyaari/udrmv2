@@ -1,0 +1,5 @@
+npm install -g mime
+npm install mime
+npm install follow-redirects
+npm install mkdirp
+npm install node-ini

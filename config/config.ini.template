@@ -1,0 +1,26 @@
+[client]
+serviceUrl = @SERVICE_URL@
+partnerId = -6
+secret = @PLAY_PARTNER_ADMIN_SECRET@
+timeout = 90
+verifySSL = false
+
+[cloud]
+domain = @CLOUD_HOSTNAME@
+httpPort = 80
+;httpsPort = 443
+secret = @CLOUD_SECRET@
+sharedBasePath = @CLOUD_SHARED_BASE_PATH@
+requestTimeout = 40
+segmentsHistoryLimit = 12
+;keyFilePath = @KEY_FILE_PATH@
+;certFilePath = @CERT_FILE_PATH@
+
+[logger]
+debugEnabled = 1
+logDir = @LOG_DIR@
+accessLogName = kaltura_play_access.log
+logName = kaltura_play.log
+errorLogName = kaltura_play_error.log
+largeDataDebugEnabled = 0
+
