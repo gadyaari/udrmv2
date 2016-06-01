@@ -14,9 +14,5 @@ else{
     KalturaProcess = new kaltura.KalturaChildProcess();
 }
 
-//var kaltura = require('./lib/KalturaServer');
-//var KalturaProcess = null;
-//KalturaProcess = new kaltura.KalturaMainProcess();
-
 var a = "Finsihed";
 console.log(a);

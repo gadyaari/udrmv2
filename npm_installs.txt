@@ -3,3 +3,5 @@ npm install mime
 npm install follow-redirects
 npm install mkdirp
 npm install node-ini
+npm install couchbase
+npm install nodeunit -g
