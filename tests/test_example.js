@@ -1,4 +1,4 @@
-var cb = require('../lib/utils/KalturaCouchbaseConnector');
+require('../lib/utils/KalturaCouchbaseConnector');
 
 exports.testSomething = function(test) {
     test.expect(1);
@@ -15,7 +15,7 @@ exports.testCouchbaseConnector =
 {
     setUp: function (callback) {
         KalturaLogger.log("setUp is called");
-        cb.KalturaCouchbaseConnector.init();
+        KalturaCouchbaseConnector.init();
         callback();
     },
 
@@ -26,7 +26,7 @@ exports.testCouchbaseConnector =
 
     testUpsert: function (test) {
         //test.expect(1);
-        cb.KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, function(err, result){
+        KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, function(err, result){
             if (err)
             {
                 test.ok(false);
@@ -39,7 +39,7 @@ exports.testCouchbaseConnector =
     },
     
     testGet: function(test) {
-        cb.KalturaCouchbaseConnector.get('test_key', function (err,result) {
+        KalturaCouchbaseConnector.get('test_key', function (err,result) {
             test.equal(result.value.test_value, 'other_side_of_json');
             test.ok(true, "Get from CB works");
             test.done();
