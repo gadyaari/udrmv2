@@ -6,11 +6,6 @@ exports.testSomething = function(test) {
     test.done();
 };
 
-//exports.testSomethingElse = function(test) {
-//    test.ok(false, "this assertion should fail");
-//    test.done();
-//};
-
 exports.testCouchbaseConnector =
 {
     setUp: function (callback) {
@@ -26,7 +21,8 @@ exports.testCouchbaseConnector =
 
     testUpsert: function (test) {
         //test.expect(1);
-        KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, function(err, result){
+        var cbCB = function(err, result)
+        {
             if (err)
             {
                 test.ok(false);
@@ -35,11 +31,13 @@ exports.testCouchbaseConnector =
                 test.ok(true, "upsert from CB works");
             }
             test.done();
-        });
+        };
+        
+        KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, true, cbCB);
     },
     
     testGet: function(test) {
-        KalturaCouchbaseConnector.get('test_key', function (err,result) {
+        KalturaCouchbaseConnector.get('test_key', true, function (err,result) {
             test.equal(result.value.test_value, 'other_side_of_json');
             test.ok(true, "Get from CB works");
             test.done();
