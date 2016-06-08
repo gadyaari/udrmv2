@@ -1,3 +1,6 @@
+Run those commands in the project directory (4 package are install localy).
+After this you should get directory named: "node_modules" in udrmv2 folder.
+
 npm install -g mime
 npm install mime
 npm install follow-redirects
@@ -5,3 +8,4 @@ npm install mkdirp
 npm install node-ini
 npm install couchbase
 npm install nodeunit -g
+npm install bluebird
