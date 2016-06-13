@@ -39,7 +39,7 @@ exports.testWidevine =
     
         var wvManager = new widevine.KalturaWidevineManager();
         var encryptionData = wvManager.createEncryptionData(providerData, postParams);
-        encryptionData.then(
+        encryptionDataPromise.then(
             function(result)
             {
                 test.equal(result[0].pssh[0].uuid, "edef8ba9-79d6-4ace-a3c8-27dcd51d21ed");        
@@ -49,6 +49,6 @@ exports.testWidevine =
                 test.ok(false, JSON.stringify(error));
             }
         );
-        encryptionData.finally(function(){test.done();});        
+        encryptionDataPromise.finally(function(){test.done();});        
     }
 };
