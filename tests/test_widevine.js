@@ -38,7 +38,7 @@ exports.testWidevine =
         };
     
         var wvManager = new widevine.KalturaWidevineManager();
-        var encryptionData = wvManager.createEncryptionData(providerData, postParams);
+        var encryptionDataPromise = wvManager.createEncryptionData(providerData, postParams);
         encryptionDataPromise.then(
             function(result)
             {
