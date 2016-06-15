@@ -29,7 +29,7 @@ exports.testExample = function(test) {
 exports.testOVPEntitlement = function(test) {
     test.expect(3);
 
-    var customData = {"ca_system":"OTT","user_token":KS,"account_id":1982551,"content_id":"0_wsgv6s7h_0_sxsts283,0_wsgv6s7h_0_koa2swtn","files":"","udid":"6f541a81fb2d7328"}
+    var customData = {"ca_system":"OVP","user_token":KS,"account_id":1982551,"content_id":"0_wsgv6s7h_0_sxsts283,0_wsgv6s7h_0_koa2swtn","files":"","udid":"6f541a81fb2d7328"}
     var ovp = new OVP(SERVER,customData);
 
     var entitlement = ovp.getEntitlement();
