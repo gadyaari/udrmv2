@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
-require('../lib/utils/KalturaCouchbaseConnector');
+var util = require('util');
+var kalturaCouchbaseConnector = require('../lib/utils/KalturaCouchbaseConnector');
 
 exports.testSomething = function(test) {
     test.expect(1);
@@ -11,7 +12,7 @@ exports.testCouchbaseConnector =
 {
     setUp: function (callback) {
         KalturaLogger.log("setUp is called");
-        KalturaCouchbaseConnector.init();
+        kalturaCouchbaseConnector.getInstance();
         callback();
     },
 
@@ -22,7 +23,7 @@ exports.testCouchbaseConnector =
 
     testUpsert: function (test) {
         test.expect(1);
-        var upsert = KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, true);
+        var upsert = kalturaCouchbaseConnector.getInstance().upsert('test_key', {'test_value':'other_side_of_json'}, true);
         upsert.then(
             function(result)
             {
@@ -38,16 +39,19 @@ exports.testCouchbaseConnector =
     
     testGet: function(test) {
         test.expect(1);
-        var testKey = KalturaCouchbaseConnector.get('test_key', true);
+        var testKey = kalturaCouchbaseConnector.getInstance().get('test_key', true);
         testKey.then(
             function(result){
+                console.log("@@NA here2");
                 test.equal(result.value.test_value, 'other_side_of_json');
             },
             function(err)
             {
+                console.log("@@NA here3");
                 test.ok(false, "Got error from CB");
             }
         );
-        testKey.finally(function(){test.done()});
+        testKey.finally(function(){console.log("@@NA here1");test.done();});
+        console.log("finishing ["+util.inspect(testKey)+"]");
     }
 };
