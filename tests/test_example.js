@@ -1,3 +1,4 @@
+var Promise = require('bluebird');
 require('../lib/utils/KalturaCouchbaseConnector');
 
 exports.testSomething = function(test) {
@@ -20,27 +21,33 @@ exports.testCouchbaseConnector =
     },
 
     testUpsert: function (test) {
-        //test.expect(1);
-        var cbCB = function(err, result)
-        {
-            if (err)
+        test.expect(1);
+        var upsert = KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, true);
+        upsert.then(
+            function(result)
+            {
+                test.ok(true, "upsert from CB works");
+            },
+            function(err)
             {
                 test.ok(false);
             }
-            else {
-                test.ok(true, "upsert from CB works");
-            }
-            test.done();
-        };
-        
-        KalturaCouchbaseConnector.upsert('test_key', {'test_value':'other_side_of_json'}, true, cbCB);
+        );
+        upsert.finally(function () {test.done();});
     },
     
     testGet: function(test) {
-        KalturaCouchbaseConnector.get('test_key', true, function (err,result) {
-            test.equal(result.value.test_value, 'other_side_of_json');
-            test.ok(true, "Get from CB works");
-            test.done();
-        });
+        test.expect(1);
+        var testKey = KalturaCouchbaseConnector.get('test_key', true);
+        testKey.then(
+            function(result){
+                test.equal(result.value.test_value, 'other_side_of_json');
+            },
+            function(err)
+            {
+                test.ok(false, "Got error from CB");
+            }
+        );
+        testKey.finally(function(){test.done()});
     }
 };
