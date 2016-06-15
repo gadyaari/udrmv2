@@ -27,7 +27,7 @@ exports.testWidevine =
             iv: 'h3jAqQOGlps/swgz5b0Kww==',
             provider: 'kaltura',
             provider_sign_key: 'jernkVsZ6j3LheMnStCAVmSncyXDBBmVSGfcWr1WQAA=',
-            seed: 'XVBovsmzhP9gRIZxWfFta3VVRPzVEWmJsazEJ46J'
+//            seed: 'XVBovsmzhP9gRIZxWfFta3VVRPzVEWmJsazEJ46J'
         };
     
         var postParams = {
@@ -38,10 +38,17 @@ exports.testWidevine =
         };
     
         var wvManager = new widevine.KalturaWidevineManager();
-        var encryptionData = wvManager.createEncryptionData(providerData, postParams);
-        //console.log("result ["+util.inspect(encryptionData)+"]");
-        //console.log("encryption data ["+util.inspect(encryptionData[0])+"]");
-        test.equal(encryptionData[0].pssh[0].uuid, "edef8ba9-79d6-4ace-a3c8-27dcd51d21ed");
-        test.done();
+        var encryptionDataPromise = wvManager.createEncryptionData(providerData, postParams);
+        encryptionDataPromise.then(
+            function(result)
+            {
+                test.equal(result[0].pssh[0].uuid, "edef8ba9-79d6-4ace-a3c8-27dcd51d21ed");        
+            },
+            function(error)
+            {
+                test.ok(false, JSON.stringify(error));
+            }
+        );
+        encryptionDataPromise.finally(function(){test.done();});        
     }
 };

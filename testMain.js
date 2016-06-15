@@ -1,6 +1,4 @@
 console.log("Starting");
-console.log("Hello World");
-
 
 var cluster = require('cluster');
 var kaltura = require('./lib/KalturaServer');
