@@ -9,3 +9,4 @@ npm install node-ini
 npm install couchbase
 npm install nodeunit -g
 npm install bluebird
+npm install xml2js
