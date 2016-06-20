@@ -5,9 +5,13 @@
 require('util');
 
 require('../lib/utils/KalturaConfig');
+var GE = require('../lib/entitlement/GenericEntitlement');
+var EF = require('../lib/entitlement/EntitlementFactory');
 var OVP = require('../lib/entitlement/OVPEntitlement');
 var OTT = require('../lib/entitlement/OTTEntitlement');
 var MOCK = require('../lib/entitlement/GenericEntitlementMock');
+
+
 
 var WRONG_DURATION_MESSAGE = "wrong duration!";
 var WRONG_ABSOLUTE_DURATION_MESSAGE = "wrong absolute_duration!";
@@ -125,4 +129,32 @@ exports.testOTTMockEntitlement = function(test) {
         }
     );
     entitlement.finally(function(){test.done();});
+};
+
+
+//this test the EntitlementFactory in Mock condition
+exports.testEntitlementFactory = function(test) {
+
+    test.done();
+    /*
+    var customData = {"ca_system":"OTT","user_token":KS,"account_id":"","content_id":"1_6ojmokuo_1_73eztmlo,1_6ojmokuo_1_00n1ga1a,1_6ojmokuo_1_pls78sme,1_6ojmokuo_1_xg79vol6","files":"","udid":""};
+    var providerData = {"provider_sign_key":"wSeqVbdA31+nWm9OfBbseuIhi5LwJoRlpiwCyJz7HYg=","cas_password":"11111","key":"b1Wnx49V07a1IafqvYRbVcUsD5F7bj26Mkbt4MzAtBU=","iv":"h3jAqQOGlps/swgz5b0Kww==","cas_username":"conditionalaccess_198","provider":"kaltura"};
+    
+    var ent = EF.createEntitlement(customData, providerData);
+
+    var entitlement = ent.getEntitlement();
+    entitlement.then(
+        function(result)
+        {
+            test.ok(result.duration == "4.06:08:18.8530000", WRONG_DURATION_MESSAGE);
+            test.ok(result.absolute_duration == "4.06:08:18.8530000", WRONG_ABSOLUTE_DURATION_MESSAGE);
+            test.ok(result.policy == "None", WRONG_POLICY_MESSAGE);
+        },
+        function(err)
+        {
+            test.ok(false, err);
+        }
+    );
+    entitlement.finally(function(){test.done();});
+    */
 };
