@@ -1,5 +1,6 @@
-Run those commands in the project directory (4 package are install localy).
+Run those commands in the project directory.
 After this you should get directory named: "node_modules" in udrmv2 folder.
+Make sure to have node version 6 or above (ECMA 6). When install couchbase make sure to have c++11 compiler.
 
 npm install -g mime
 npm install mime
