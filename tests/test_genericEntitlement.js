@@ -17,6 +17,8 @@ var KS = KalturaConfig.config.udrm.KS;
 var OVPSERVER = KalturaConfig.config.udrm.OVPSERVER;
 var OTTSERVER = KalturaConfig.config.udrm.OTTSERVER;
 var OTTPATH = KalturaConfig.config.udrm.OTTPATH;
+
+
 console.log("Starting tests with IP: " + OVPSERVER + " for OVP and " + OTTSERVER + " for OTT");
 
 
