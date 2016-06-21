@@ -42,7 +42,7 @@ exports.testCouchbaseConnector =
         var testKey = kalturaCouchbaseConnector.getInstance().get('test_key', true);
         testKey.then(
             function(result){
-                test.equal(result.value.test_value, 'other_side_of_json');
+                test.equal(result.value.test_value, 'other_side_of_json',"OK");
             },
             function(err)
             {
@@ -50,5 +50,24 @@ exports.testCouchbaseConnector =
             }
         );
         testKey.finally(function(){test.done();});
+    },
+    
+    testGetMulti: function(test)
+    {
+        test.expect(2);
+        let multiPromise = kalturaCouchbaseConnector.getInstance().getMulti(['cenc_101','cenc_2621','doesntexists what erfw'],true);
+        multiPromise.then(
+            function(results)
+            {
+                test.equal(results['cenc_101'].value.provider_sign_key, 'jernkVsZ6j3LheMnStCAVmSncyXDBBmVSGfcWr1WQAA=',"provider sign key of cenc_101 is OK");
+                test.equal(results['cenc_2621'].value['key'], 'b1Wnx49V07a1IafqvYRbVcUsD5F7bj26Mkbt4MzAtBU=', "key of 2621 is OK");
+            },
+            function(err)
+            {
+                console.log("wwwwhhhhhhhhhhaaaaaatttttt");
+                test.ok(false, 'Got error from CB ['+util.inspect+']');
+            }
+        );
+        multiPromise.finally(function(){test.done()});
     }
 };
