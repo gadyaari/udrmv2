@@ -21,13 +21,13 @@ exports.testWidevine =
     
     encryption:function(test)
     {
-        test.expect(1);
+        test.expect(4);
         var providerData = {
             key: 'b1Wnx49V07a1IafqvYRbVcUsD5F7bj26Mkbt4MzAtBU=',
             iv: 'h3jAqQOGlps/swgz5b0Kww==',
             provider: 'kaltura',
             provider_sign_key: 'jernkVsZ6j3LheMnStCAVmSncyXDBBmVSGfcWr1WQAA=',
-//            seed: 'XVBovsmzhP9gRIZxWfFta3VVRPzVEWmJsazEJ46J'
+            seed: 'rJmT2nTj7acd99aNpVjDYuRPs8tHGt6q80yWpaLA'
         };
     
         var postParams = {
@@ -42,7 +42,10 @@ exports.testWidevine =
         encryptionDataPromise.then(
             function(result)
             {
-                test.equal(result[0].pssh[0].uuid, "edef8ba9-79d6-4ace-a3c8-27dcd51d21ed");        
+                test.equal(result[0].key_id, "ongd6sHs/QaD1tk2RbYsMg==");
+                test.equal(result[0].key, "vYSe0cNYP1gMfaG80yiIpg==");
+                test.equal(result[0].pssh[0].uuid, "edef8ba9-79d6-4ace-a3c8-27dcd51d21ed");
+                test.equal(result[0].pssh[0].data, "CAESEKJ4HerB7P0Gg9bZNkW2LDIaB2thbHR1cmEiCjBfZzZkODJvdWcqBVNEX0hE");
             },
             function(error)
             {

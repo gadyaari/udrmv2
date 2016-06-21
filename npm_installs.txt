@@ -9,3 +9,5 @@ npm install node-ini
 npm install couchbase
 npm install nodeunit -g
 npm install bluebird
+
+npm install --save-dev eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y eslint?
