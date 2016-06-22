@@ -64,7 +64,6 @@ exports.testCouchbaseConnector =
             },
             function(err)
             {
-                console.log("wwwwhhhhhhhhhhaaaaaatttttt");
                 test.ok(false, 'Got error from CB ['+util.inspect+']');
             }
         );
