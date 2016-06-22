@@ -10,7 +10,7 @@ exports.testSomething = function(test) {
 exports.testWidevine =
 {
     setUp: function (callback) {
-        KalturaCouchbaseConnector.init();
+        //KalturaCouchbaseConnector.getInstance();
         callback();
     },
 
