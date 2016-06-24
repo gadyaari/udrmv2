@@ -13,20 +13,11 @@ var OTT = require('../lib/entitlement/OTTEntitlement');
 var MOCK = require('../lib/entitlement/GenericEntitlementMock');
 
 
-
 var WRONG_DURATION_MESSAGE = "wrong duration!";
 var WRONG_ABSOLUTE_DURATION_MESSAGE = "wrong absolute_duration!";
 var WRONG_POLICY_MESSAGE = "wrong absolute_duration!";
 
 var KS = KalturaConfig.config.udrm.KS;
-var OVPSERVER = KalturaConfig.config.udrm.OVPSERVER;
-var OTTSERVER = KalturaConfig.config.udrm.OTTSERVER;
-var OTTPATH = KalturaConfig.config.udrm.OTTPATH;
-
-
-console.log("Starting tests with IP: " + OVPSERVER + " for OVP and " + OTTSERVER + " for OTT");
-
-
 
 //this test is just to see that the file is running and OK
 exports.testExample = function(test) {
@@ -77,6 +68,7 @@ exports.testOTTEntitlement = function(test) {
     var ott = new OTT(customData, providerData);
 
     var entitlement = ott.getEntitlement();
+
     entitlement.then(
         function(result)
         {
@@ -90,6 +82,7 @@ exports.testOTTEntitlement = function(test) {
         }
     );
     entitlement.finally(function(){test.done();});
+    
 };
 
 
