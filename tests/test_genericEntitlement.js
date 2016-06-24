@@ -48,6 +48,7 @@ exports.testOVPEntitlement = function(test) {
         },
         function(err)
         {
+            console.log("catch here! at the end");
             test.ok(false, err);
         }
     );
