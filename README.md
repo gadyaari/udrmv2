@@ -37,6 +37,10 @@ cd udrmv2
 ```
 
 ```
+npm run preinstall
+```
+
+```
 npm install
 ```
 
