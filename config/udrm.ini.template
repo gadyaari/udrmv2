@@ -2,5 +2,5 @@
 KEY = @UDRM_KEY@
 IV = @UDRM_IV@
 VERSION = 3.0.1
+//TODO if we move this to the CB then we can have different servers for different OVP partners
 OVPSERVER = @OVP_SERVER@
-KS = @PARTNER_KS@
