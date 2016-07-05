@@ -1,0 +1,30 @@
+[tests][playready]
+key = @key@
+iv = @iv@
+provider = @provider@
+provider_sign_key = @provider_sign_key@
+files = @files@
+content_id = @content_id@
+ca_system = @ca_system@
+account_id = @account_id@
+seed = @seed@
+expected_keyId = @expected_keyId@
+expected_key = @expected_key@
+expected_uuid = @expected_uuid@
+expected_data = @expected_data@
+
+[tests][widevine]
+key = @key@
+iv = @iv@
+provider = @provider@
+provider_sign_key = @provider_sign_key@
+files = @files@
+content_id = @content_id@
+ca_system = @ca_system@
+account_id = @account_id@
+seed = @seed@
+expected_keyId = @expected_keyId@
+expected_key = @expected_key@
+expected_uuid = @expected_uuid@
+expected_data = @expected_data@
+seed = @seed@
