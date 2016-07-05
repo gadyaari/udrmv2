@@ -80,7 +80,8 @@ To check the server status
 service kaltura-udrm status
 ```
 
+##Picture of Concepcion volcano
 
 ![Alt text](./concepcion.jpg?raw=true "Concepcion")
 
-Copyright © Kaltura Inc. All rights reserved.
+Copyright Â© Kaltura Inc. All rights reserved.
