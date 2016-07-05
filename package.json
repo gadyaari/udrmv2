@@ -1,0 +1,32 @@
+{
+  "name": "udrm-v2",
+  "version": "3.0.1",
+  "description": "A unified DRM system that allows for multiple drm systems and multiple entitlement servers to work as seemlesly as possible.",
+  "main": "main.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "nodeunit tests",
+    "preinstall": "npm i -g themodule"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kaltura/udrmv2.git"
+  },
+  "author": "Noam Arad",
+  "license": "AGPL",
+  "bugs": {
+    "url": "https://github.com/kaltura/udrmv2/issues"
+  },
+  "dependencies": {
+    "bluebird": "~3.4.1",
+    "couchbase": "~2.2.1",
+    "follow-redirects": "~0.2.0",
+    "mime": "~1.3.4",
+    "mkdirp": "~0.5.1",
+    "node-ini": "~1.0.0",
+    "request": "~2.72.0",
+    "xml2js": "~0.4.16"
+  }
+}
