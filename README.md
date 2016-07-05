@@ -5,6 +5,11 @@
 * npm installed
 * c++ compiler (for Ubuntu the build-essential and libssl-dev packages work.).
 
+## Clone repository
+```
+git clone https://github.com/kaltura/udrmv2.git
+```
+
 ## Install nvm
 
 ```sh
@@ -17,12 +22,14 @@ or Wget:
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
 ```
 
-Then run
+### Install relevant node version
+```
+cd udrmv2
+```
 
-```nvm install @required_node_version@```
+```nvm install```
 
-## Clone repository
-git clone https://github.com/kaltura/udrmv2.git
+You can see the node version in .nvmrc
 
 ## Get necessary node packages
 ```
