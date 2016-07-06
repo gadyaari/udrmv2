@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "bluebird": "~3.4.1",
+    "body-parser": "^1.15.2",
     "couchbase": "~2.2.1",
     "express": "^4.14.0",
     "follow-redirects": "~0.2.0",
