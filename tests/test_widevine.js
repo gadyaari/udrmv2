@@ -50,7 +50,6 @@ exports.testWidevine =
                 test.equal(result[resKey][0].key, KalturaConfig.config.tests.widevine.expected_key );
                 test.equal(result[resKey][0].pssh[0].uuid, KalturaConfig.config.tests.widevine.expected_uuid);
                 test.equal(result[resKey][0].pssh[0].data, KalturaConfig.config.tests.widevine.expected_data);
-
             }
         }
         function notScucess(error)
