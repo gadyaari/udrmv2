@@ -46,7 +46,7 @@ npm install
 
 ## Setup service script
 ```
-cp scripts/kaltura_udrm.template.sh /etc/init.d/kalutra-udrm
+cp scripts/kaltura_udrm.template.sh /etc/init.d/kaltura-udrm
 ```
 
 Edit the file /etc/init.d/kalutra-udrm.sh:
