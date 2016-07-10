@@ -6,20 +6,20 @@
 
 
 #
-# play-server              This shell script takes care of starting and stopping a Kaltura play-server Service
+# udrm-server              This shell script takes care of starting and stopping a Kaltura udrm-server Service
 #
 # chkconfig: 2345 13 87
-# description: Kaltura play-server
+# description: Kaltura udrm-server
 
 ### BEGIN INIT INFO
-# Provides:          kaltura-play-server
+# Provides:          kaltura-udrm-server
 # Required-Start:    $local_fs $remote_fs $network
 # Required-Stop:     $local_fs $remote_fs $network
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # X-Interactive:     true
-# Short-Description: Start/stop Kaltura play-server
-# Description:       Control the Kaltura play-server.
+# Short-Description: Start/stop Kaltura udrm-server
+# Description:       Control the Kaltura udrm-server.
 ### END INIT INFO
 
 NAME="udrm"
@@ -30,7 +30,11 @@ PIDFILE="@LOG_DIR@/udrm_server.pid"
 LOGFILE="@LOG_DIR@/udrm-server.log"
 MIN_UPTIME="5000"
 SPIN_SLEEP_TIME="2000"
-export PATH=$PATH:$NODE_PATH/forever/bin
+
+PATH=$PATH:$NODE_PATH/forever/bin
+NVM_DIR="/root/.nvm"
+
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 start() {
     if [ -f $PIDFILE ] ; then
