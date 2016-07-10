@@ -26,6 +26,7 @@ NAME="udrm"
 UDRM_SERVER_PREFIX="@UDRM_SERVER_BASE_DIR@"
 NODE_PATH="$UDRM_SERVER_PREFIX/node_modules"
 APPLICATION_PATH="$UDRM_SERVER_PREFIX/main.js"
+#TODO: move pid file to /var/run
 PIDFILE="@LOG_DIR@/udrm_server.pid"
 LOGFILE="@LOG_DIR@/udrm-server.log"
 MIN_UPTIME="5000"
@@ -40,18 +41,19 @@ start() {
     if [ -f $PIDFILE ] ; then
        echo "Server Already Running..."
        RETVAL=1
+    else
+        echo "Starting $NAME"
+        cd $UDRM_SERVER_PREFIX
+        nvm use
+        forever \
+          --pidFile $PIDFILE \
+          -a \
+          -l $LOGFILE \
+          --minUptime $MIN_UPTIME \
+          --spinSleepTime $SPIN_SLEEP_TIME \
+          start $APPLICATION_PATH 2>&1 > /dev/null &
+        RETVAL=$?
     fi
-    echo "Starting $NAME"
-    cd $UDRM_SERVER_PREFIX
-    nvm use
-    forever \
-      --pidFile $PIDFILE \
-      -a \
-      -l $LOGFILE \
-      --minUptime $MIN_UPTIME \
-      --spinSleepTime $SPIN_SLEEP_TIME \
-      start $APPLICATION_PATH 2>&1 > /dev/null &
-    RETVAL=$?
 }
 
 stop() {
@@ -77,7 +79,7 @@ restart() {
     else
 	# if PID does not exsists start the server
 	start
-        RETVAL=0
+        RETVAL=$?
     fi
 }
 
